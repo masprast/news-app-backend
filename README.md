@@ -85,6 +85,10 @@ Sejauh ini penulis hanya mampu melakukan pengetesan untuk login, dengan _output_
 }
 ```
 
+> login dengan admin credential yang ada pada file `.env`
+> email: `$ADMIN_USER`
+> password: `$ADMIN_PWD`
+
 ### Note
 
 Tapi, entah mengapa saat melakukan pengetesan untuk **RBAC** (Role Based Access Control) dengan menggunakan _middleware_, _express_ tiba-tiba _not responding_ sehingga terjadi _error CONNECTION REFUSED_, sehingga tidak dapat melakukan pengujian selanjutnya.
