@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>news-app-backend</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-dark">
+            <h1 id="news-app-backend">news-app-backend</h1>
+<p>Ini adalah repoiroti dalam rangka pre-test proses rekrutmen untuk posisi backend developer.</p>
+<h3 id="route">Route</h3>
+<p>Route yang tersedia untuk API ini sebagai berikut:</p>
+<table>
+<thead>
+<tr>
+<th>endpoint</th>
+<th>method</th>
+<th>keterangan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>/</em></td>
+<td><code>GET</code></td>
+<td>halaman awal/root</td>
+</tr>
+<tr>
+<td><em>/login</em></td>
+<td><code>POST</code></td>
+<td>login user</td>
+</tr>
+<tr>
+<td><em>/:username</em></td>
+<td><code>GET</code></td>
+<td>detail user</td>
+</tr>
+<tr>
+<td><em>/user</em></td>
+<td><code>GET</code></td>
+<td>list user</td>
+</tr>
+<tr>
+<td><em>/user</em></td>
+<td><code>POST</code></td>
+<td>create user</td>
+</tr>
+<tr>
+<td><em>/user/:username</em></td>
+<td><code>PUT</code></td>
+<td>update user</td>
+</tr>
+<tr>
+<td><em>/user/:username</em></td>
+<td><code>DELETE</code></td>
+<td>delete user</td>
+</tr>
+<tr>
+<td><em>/logout</em></td>
+<td><code>POST</code></td>
+<td>logout user</td>
+</tr>
+<tr>
+<td><em>/news</em></td>
+<td><code>GET</code></td>
+<td>list and search news</td>
+</tr>
+<tr>
+<td><em>/news</em></td>
+<td><code>POST</code></td>
+<td>create news</td>
+</tr>
+<tr>
+<td><em>/news/:id</em></td>
+<td><code>GET</code></td>
+<td>detail news</td>
+</tr>
+<tr>
+<td><em>/news/:id</em></td>
+<td><code>PUT</code></td>
+<td>update news</td>
+</tr>
+<tr>
+<td><em>/news/:id</em></td>
+<td><code>DELETE</code></td>
+<td>delete news</td>
+</tr>
+<tr>
+<td><em>/category</em></td>
+<td><code>GET</code></td>
+<td>list category</td>
+</tr>
+<tr>
+<td><em>/category</em></td>
+<td><code>POST</code></td>
+<td>create category</td>
+</tr>
+<tr>
+<td><em>/category/:id</em></td>
+<td><code>GET</code></td>
+<td>detail category</td>
+</tr>
+<tr>
+<td><em>/category/:id</em></td>
+<td><code>PUT</code></td>
+<td>update category</td>
+</tr>
+<tr>
+<td><em>/category/:id</em></td>
+<td><code>DELETE</code></td>
+<td>delete category</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pre-requisities">Pre-requisities</h3>
+<ol>
+<li>Docker compose</li>
+<li>NPM</li>
+</ol>
+<h3 id="tech-stack">Tech-stack</h3>
+<ol>
+<li>Typescript - Language</li>
+<li>PostgreSQL - DB</li>
+<li>Express - HTTP server</li>
+<li>Prisma - ORM</li>
+<li>Docker - container</li>
+</ol>
+<h3 id="langkah-langkah">Langkah-langkah</h3>
+<ol>
+<li>
+<p>clone repo dari github akun penulis</p>
+<pre><code class="language-sh">git <span class="hljs-built_in">clone</span> https://github.com/masprast/news-app-backend.git
+<span class="hljs-built_in">cd</span> news-app-backend
+</code></pre>
+</li>
+<li>
+<p>lalu install dependency</p>
+<pre><code>npm i
+</code></pre>
+</li>
+<li>
+<p>jalankan DB PostgreSQL dalam container dengan perintah <code>docker-compose up -d</code></p>
+</li>
+<li>
+<p>setelah kontainer database berjalan, langkah selanjutnya adalah membuat tabel. Di sini penulis menggunakan module <em>prisma</em></p>
+<pre><code class="language-sh">npx prisma generate
+npx prisma db push
+</code></pre>
+</li>
+</ol>
+<h3 id="pengetesan">Pengetesan</h3>
+<p>Sejauh ini penulis hanya mampu melakukan pengetesan untuk login, dengan <em>output</em> seperti berikut:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+	<span class="hljs-attr">&quot;user&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+		<span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;46569578-130d-4061-9248-5bddf95192ce&quot;</span><span class="hljs-punctuation">,</span>
+		<span class="hljs-attr">&quot;email&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;thespecialone@admin&quot;</span><span class="hljs-punctuation">,</span>
+		<span class="hljs-attr">&quot;username&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;thespecialone@admin&quot;</span><span class="hljs-punctuation">,</span>
+		<span class="hljs-attr">&quot;role&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ADMIN&quot;</span>
+	<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+		<span class="hljs-attr">&quot;access&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+			<span class="hljs-attr">&quot;token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NjU2OTU3OC0xMzBkLTQwNjEtOTI0OC01YmRkZjk1MTkyY2UiLCJpYXQiOjE3MzA2NDExNzQwMDAsImV4cCI6MTczMDY2NjM3NDAwMCwidHlwZSI6IkFDQ0VTUyJ9.lj6P8rYuBKZTIsDKaMNUIN6wQI8_Kspy0NPhlPIMAoQ&quot;</span><span class="hljs-punctuation">,</span>
+			<span class="hljs-attr">&quot;expires&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2024-11-03T13:39:34.568Z&quot;</span>
+		<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+		<span class="hljs-attr">&quot;refresh&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+			<span class="hljs-attr">&quot;token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NjU2OTU3OC0xMzBkLTQwNjEtOTI0OC01YmRkZjk1MTkyY2UiLCJpYXQiOjE3MzA2NDExNzQwMDAsImV4cCI6MTczMDY2NjM3NDAwMCwidHlwZSI6IlJFRlJFU0gifQ.qm-p7Jaxb9f1J9VVU649pp0D4tL2w3F-EwXFyaKZo1s&quot;</span><span class="hljs-punctuation">,</span>
+			<span class="hljs-attr">&quot;expires&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2024-11-03T13:39:34.576Z&quot;</span>
+		<span class="hljs-punctuation">}</span>
+	<span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>Tapi, entah mengapa saat melakukan pengetesan untuk <strong>RBAC</strong> (Role Based Access Control) dengan menggunakan <em>middleware</em>, <em>express</em> tiba-tiba <em>not responding</em> sehingga terjadi <em>error CONNECTION REFUSED</em>, sehingga tidak dapat melakukan pengujian selanjutnya.</p>
+
+            
+            
+        </body>
+        </html>

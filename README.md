@@ -49,7 +49,7 @@ Route yang tersedia untuk API ini sebagai berikut:
    ```
 
 2. lalu install dependency
-   ```
+   ```sh
    npm i
    ```
 3. jalankan DB PostgreSQL dalam container dengan perintah `docker-compose up -d`
@@ -58,6 +58,7 @@ Route yang tersedia untuk API ini sebagai berikut:
    npx prisma generate
    npx prisma db push
    ```
+5. lalu jalankan express server dengan perintah `npm run dev`
 
 ### Pengetesan
 
@@ -83,5 +84,7 @@ Sejauh ini penulis hanya mampu melakukan pengetesan untuk login, dengan _output_
 	}
 }
 ```
+
+### Note
 
 Tapi, entah mengapa saat melakukan pengetesan untuk **RBAC** (Role Based Access Control) dengan menggunakan _middleware_, _express_ tiba-tiba _not responding_ sehingga terjadi _error CONNECTION REFUSED_, sehingga tidak dapat melakukan pengujian selanjutnya.
